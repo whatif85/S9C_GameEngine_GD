@@ -3,13 +3,13 @@
 
 int main(int argc, char* args[])
 {
+	// Declare and get one (and only one) instance of a singleton
+	Engine& gameEngine = Engine::GetInstance();
+
 	sf::RenderWindow window(sf::VideoMode(800, 600), "My Game");
 
-	// run the program as long as the window is open
-	while (window.isOpen() == true)
-	{
-		
-	}
+	// Pass the window reference to the engine and start it
+	gameEngine.Start(&window);
 
 	return 0;
 }

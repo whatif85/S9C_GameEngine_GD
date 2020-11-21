@@ -2,15 +2,20 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "ECS.h"
+#include "Components.h"
 
 
 class Engine
 {
 public:
 	sf::RenderWindow* window;
+	ECS::World* world;
 
 	static Engine& GetInstance(void);
+
 	void Start(sf::RenderWindow* win);
+	void AddSystem(ECS::EntitySystem* newSys);
 
 private:
 	bool bQuit;
