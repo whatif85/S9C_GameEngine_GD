@@ -40,6 +40,8 @@ void Engine::Update()
 		if (_event.type == sf::Event::Closed)
 		{
 			window->close();
+
+			exit(EXIT_SUCCESS);
 		}
 	}
 
