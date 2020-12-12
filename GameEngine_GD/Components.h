@@ -12,13 +12,33 @@ public:
 	ECS_DECLARE_TYPE;
 
 	float xPos, yPos, rotation;
+	float xSpeed, ySpeed;
 
 	Transform(float newX, float newY)
+		: xPos(newX), yPos(newY)
 	{
-		this->xPos = newX;
-		this->yPos = newY;
+		this->xSpeed = 0;
+		this->ySpeed = 0;
 
 		this->rotation = 0.0f;
+	}
+
+	void UpdateSpeed(float x, float y)
+	{
+		this->xSpeed = x;
+		this->ySpeed = y;
+	}
+
+	void Move()
+	{
+		xPos += xSpeed;
+		yPos += ySpeed;
+	}
+
+	void Stop()
+	{
+		xSpeed = 0;
+		ySpeed = 0;
 	}
 };
 ECS_DEFINE_TYPE(Transform);
@@ -75,3 +95,26 @@ public:
 	}
 };
 ECS_DEFINE_TYPE(Animator);
+
+
+struct InputController
+{
+public:
+	ECS_DECLARE_TYPE;
+
+	bool bInputActive;
+
+	// Key states
+	bool wKey, aKey, sKey, dKey;
+
+	InputController()
+	{
+		bInputActive = true;
+
+		wKey = false;
+		aKey = false;
+		sKey = false;
+		dKey = false;
+	}
+};
+ECS_DEFINE_TYPE(InputController);

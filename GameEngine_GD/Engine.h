@@ -7,6 +7,9 @@
 
 #include "Systems/RenderingSystem.h"
 #include "Systems/AnimationSystem.h"
+#include "Systems/InputSystem.h"
+#include "Systems/MovementSystem.h"
+// TODO: Halve x/y speeds when pressing both x/y keys
 
 
 class Engine
