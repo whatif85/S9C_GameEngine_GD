@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+
 #include <SFML/Graphics.hpp>
 #include "ECS.h"
 #include "Components.h"
@@ -9,7 +10,7 @@
 #include "Systems/AnimationSystem.h"
 #include "Systems/InputSystem.h"
 #include "Systems/MovementSystem.h"
-// TODO: Halve x/y speeds when pressing both x/y keys
+#include "Systems/PhysicsSystem.h"
 
 
 class Engine
