@@ -136,10 +136,14 @@ public:
 
 	BoxCollider()
 	{
-		this->leftEdge = 0;
-		this->rightEdge = 0;
-		this->topEdge = 0;
-		this->bottomEdge = 0;
+		std::memset(this, '\0', sizeof(BoxCollider));
+		// same as
+		/*
+			this->leftEdge = 0;
+			this->rightEdge = 0;
+			this->topEdge = 0;
+			this->bottomEdge = 0;
+		*/
 	}
 
 	void Update(float xSide, float ySide, float width, float height)

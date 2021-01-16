@@ -20,8 +20,8 @@ public:
 		float x, float y
 	);
 	bool IsColliding(
-		ECS::ComponentHandle<BoxCollider> touchingEntity,
-		ECS::ComponentHandle<BoxCollider> touchedEntity
+		ECS::ComponentHandle<BoxCollider> touchingBox,
+		ECS::ComponentHandle<BoxCollider> touchedBox
 	);
 
 	void CheckCollisionSides(
@@ -34,7 +34,13 @@ public:
 		ECS::ComponentHandle<BoxCollider> touchingEntity,
 		sf::RectangleShape touchedRectangle
 	);
-	void CheckCollisionSides(
+	/*
+	void PushEntity(
+		ECS::Entity* touchingEntity,
+		ECS::Entity* touchedEntity
+	);
+	*/
+	void PushEntity(
 		ECS::Entity* touchingEntity,
 		ECS::Entity* touchedEntity
 	);
