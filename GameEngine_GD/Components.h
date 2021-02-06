@@ -12,10 +12,10 @@ public:
 	ECS_DECLARE_TYPE;
 
 	float xPos, yPos, rotation;
-	float xSpeed, ySpeed;
+	float xSpeed, ySpeed, speedMod;
 
-	Transform(float newX, float newY)
-		: xPos(newX), yPos(newY)
+	Transform(float newX, float newY, float newSpeedMod = 0.0f, float newXSpeed = 0.0f, float newYSpeed = 0.0f)
+		: xPos(newX), yPos(newY), speedMod(newSpeedMod)
 	{
 		this->xSpeed = 0;
 		this->ySpeed = 0;
@@ -37,7 +37,7 @@ public:
 			xSpeed /= 2;
 			ySpeed /= 2;
 		}
-
+		
 		xPos += xSpeed;
 		yPos += ySpeed;
 	}
@@ -133,6 +133,7 @@ public:
 	ECS_DECLARE_TYPE;
 
 	float leftEdge, rightEdge, topEdge, bottomEdge;
+	float boxWidth, boxHeight;
 
 	BoxCollider()
 	{
@@ -152,6 +153,23 @@ public:
 		this->rightEdge = xSide + width;
 		this->topEdge = ySide;
 		this->bottomEdge = ySide + height;
+		this->boxWidth = width;
+		this->boxHeight = height;
 	}
 };
 ECS_DEFINE_TYPE(BoxCollider);
+
+
+struct Camera
+{
+public:
+	ECS_DECLARE_TYPE;
+
+	sf::View cameraView;
+
+	Camera(sf::Vector2f pivot)
+	{
+		cameraView.setCenter(pivot);
+	}
+};
+ECS_DEFINE_TYPE(Camera);

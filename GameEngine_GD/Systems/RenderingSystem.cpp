@@ -11,10 +11,10 @@ void RenderingSystem::tick(ECS::World* world, float deltaTime)
 	Engine::GetInstance().window->clear();
 
 	// This is a Lambda (anonymous) function, which allows to pass a function to some function, to be called directly here and nowhere else
-	world->each<Transform, Sprite2D>(
+	world->each<struct Transform, struct Sprite2D>(
 		[&](ECS::Entity* entity,
-			ECS::ComponentHandle<Transform> transform,
-			ECS::ComponentHandle<Sprite2D> sprite) -> void
+			ECS::ComponentHandle<struct Transform> transform,
+			ECS::ComponentHandle<struct Sprite2D> sprite) -> void
 	{
 		// Check if an entity has their texture loaded 
 		if (textureMap.count(sprite->texture) < 1)
