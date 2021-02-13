@@ -21,5 +21,7 @@ void InputSystem::GetKeyEvents(ECS::World* world)
 		input->sKey = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
 		input->aKey = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
 		input->dKey = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+
+		input->aKey = sf::
 	});
 }
